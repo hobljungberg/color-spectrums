@@ -1,0 +1,17 @@
+{
+  "name": "genera-project",
+  "version": "1.0.0",
+  "description": "Boilerplate project for Genera",
+  "main": "index.html",
+  "repository": "https://github.com/hobljungberg/color-spectrums",
+  "author": "Hob Ljungberg <hob@hobljungberg.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+      "start": "npx parcel index.html",
+      "build": "npx parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
