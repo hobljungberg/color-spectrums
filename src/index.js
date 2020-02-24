@@ -3,20 +3,20 @@
  */
 
 
-import PixelSpace from 'genera/src/PixelSpace';
+import CanvasSpace from 'genera/src/spaces/CanvasSpace';
 import ColorSpectrum from 'genera/src/light/ColorSpectrum';
 import Collection from 'genera/src/combine/Collection';
 
 const workspace = document.querySelector("#workspace");
-const canvas = new PixelSpace('#workspace', workspace.clientWidth, workspace.clientHeight);
-const spectrum = new ColorSpectrum("RGGBRB");
+const dashboard = document.querySelector("#dashboard");
+
+const canvas = new CanvasSpace('#workspace', workspace.clientWidth, workspace.clientHeight);
+const spectrums = new Collection('RRGGBB').permute();
+const spectrum = new ColorSpectrum(spectrums[Math.round(Math.random() * spectrums.length)]);
 const period = Math.floor(spectrum.length / canvas.width);
 
-//const spectrums = new Collection(['r', 'g', 'b', 'r', 'g', 'b']).combinations;
-const spectrums = new Collection(['r', 'r', 'g', 'g', 'b', 'b']).combinations().map(combo => combo.reduce((a,b) => a + b));
+dashboard.innerText = spectrum.permutation;
 
-console.log(spectrums);
-
-//for (let col = 0; col < canvas.width; col++) {
-    //canvas.setColumn(col, spectrum.color(period * col));
-//}
+for (let col = 0; col < canvas.width; col++) {
+    canvas.setColumn(col, spectrum.color(period * col));
+}

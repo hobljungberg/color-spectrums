@@ -19,15 +19,29 @@
             left: -50%;
             right: -50%;
             transform: translateY(-50%);
+            z-index: 0;
 
             width: 99%;
             height: 99%;
             margin: auto;
         }
+
+        #dashboard {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: inline-block;
+            z-index: 999;
+
+            color: #DDD;
+            font-family: Arial;
+            font-size: 50px;
+        }
     </style>
 </head>
 <body>
     <div id="workspace"></div>
+    <div id="dashboard"></div>
     <script src="./src/index.js"></script>
 </body>
 </html>
